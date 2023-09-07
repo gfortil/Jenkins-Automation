@@ -550,14 +550,12 @@ def main():
     if (py_version >= (3, 8)):
         print("Running Selenium 4 with Python {}.{}.{}".format
               (py_version.major, py_version.minor, py_version.micro))
-        service = Service('/usr/local/bin/chromedriver')
+        # service = Service('/usr/local/bin/chromedriver')
         # Create a new instance (object) of the Chrome driver
         if (headless == True):
-            driver = webdriver.Chrome(service=Service(
-                ChromeDriverManager().install()), options=chromeOptions)
+            driver = webdriver.Chrome(service=Service(), options=chromeOptions)
         else:
-            driver = webdriver.Chrome(service=Service(
-                ChromeDriverManager().install()))
+            driver = webdriver.Chrome(service=Service(), options=webdriver.ChromeOptions())
     else:
         print("Running Selenium 3 with Python {}.{}.{}" .format
               (py_version.major, py_version.minor, py_version.micro))
